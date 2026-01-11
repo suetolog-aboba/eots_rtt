@@ -7,7 +7,7 @@
 - Content is mostly static assets plus rules engine logic.
 
 ## Commands (Build/Lint/Test)
-- No formal lint or test runner exists in this repo.
+- No repo-provided lint or formatter.
 - Build artifacts are typically pre-generated and checked in.
 - Manual verification is common; see Rally-the-Troops server docs.
 
@@ -22,10 +22,18 @@
 - Rebuilds when `rules.txt` or `tools/compile.js` changes.
 - Uses `inotifywait` (Linux package `inotify-tools`).
 
-### Single Test / Single Script
-- No automated tests exist, so a single test command is not applicable.
-- Use targeted manual checks in the browser or via the server.
-- If you add tests in future, document the command here.
+### Tests (Local)
+- `npm test` (smoke + specs)
+- `npm run test:smoke`
+- `npm run test:fuzz`
+- `npm run test:all`
+
+### Tests (Docker)
+- `docker build -t eots-test .`
+- `docker run --rm -v $(pwd):/app eots-test npm test`
+- `docker run --rm -v $(pwd):/app eots-test npm run test:smoke`
+- `docker run --rm -v $(pwd):/app eots-test npm run test:fuzz`
+- `docker run --rm -v $(pwd):/app eots-test npm run test:all`
 
 ### Lint / Format
 - No repo-provided lint or formatter.
@@ -36,7 +44,9 @@
 - `rules.js` contains the core game logic for the server runtime.
 - `data.js` holds game data structures for cards, pieces, and map.
 - `tools/` contains compiler utilities and GDL documentation.
-- `agent/docs/` hosts AI reference materials like `empire_of_the_sun_indexed_rules.md` and `player_aid.md`.
+- `test/` hosts the Node-based test harness, runner, and specs.
+- `agent/docs/` hosts AI reference materials like `empire_of_the_sun_indexed_rules.md`, `player_aid.md`, `testing-guide.md`, and `features.md`.
+- `agent/overview/` contains `PROJECT_OVERVIEW.md` and `CODE_REVIEW.md` for architecture and audit context.
 - `cards/`, `pieces/`, `markers75/`, and images are assets.
 - `layout.js` and `world.js` implement UI helpers and custom elements.
 - `play.js` wires up gameplay interactions and rendering.

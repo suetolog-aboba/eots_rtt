@@ -1,0 +1,12 @@
+{
+  "name": "empire-of-the-sun-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test infrastructure for Empire of the Sun",
+  "scripts": {
+    "test": "node test/runner.js",
+    "test:smoke": "node test/runner.js --smoke",
+    "test:fuzz": "node test/runner.js --fuzz",
+    "test:all": "node test/runner.js --all"
+  }
+}
