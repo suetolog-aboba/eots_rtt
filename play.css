@@ -420,11 +420,16 @@ body.hex-clickable .action_hex { z-index: 50; }
 }
 
 .piece {
-    border: 1px solid black;
+    border: 1px solid #182022a8;
 }
 
 .unit, .marker {
-    border: 1px solid black;
+    border: 1px solid #182022a8;
+    border-radius: 2px;
+    box-shadow:
+        0 2px 3px #0005,
+        inset 0 1px 0 #fff5,
+        inset 0 -1px 0 #0002;
     transition: left 200ms, top 200ms;
     position: absolute;
     /*background-size: auto 100%;*/
@@ -436,6 +441,15 @@ body.hex-clickable .action_hex { z-index: 50; }
 
 }
 
+.unit::before, .marker:not(.road)::before, .icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(145deg, #fff2, transparent 45%, #0001);
+    pointer-events: none;
+}
+
 .piece.big, .marker.big {
     width: 45px;
     height: 45px;
@@ -443,6 +457,8 @@ body.hex-clickable .action_hex { z-index: 50; }
 
 .marker.road {
     border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .unit-tip {
@@ -708,6 +724,12 @@ body.hex-clickable .action_hex { z-index: 50; }
     display: inline-block;
     vertical-align: -12px;
     margin: 2px;
+    border: 1px solid #1820228f;
+    border-radius: 2px;
+    box-shadow:
+        0 2px 3px #0004,
+        inset 0 1px 0 #fff5,
+        inset 0 -1px 0 #0002;
     background-repeat: no-repeat;
     /*border-radius: 5px;*/
     width: 35px;
