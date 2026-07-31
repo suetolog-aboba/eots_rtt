@@ -840,8 +840,7 @@ function hex_center(i) {
             return sing_left_coord;
         }
     } else if (SID === SOUTH_PACIFIC_SCENARIO && i >= OAHU) {
-        const box = map_layout.h_5808
-        return center_rect([box[0] + box[2], box[1] + box[3]], box[2], box[3])
+        return map_layout.h_5808.slice(0, 2)
     }
     return [
         (map_info.display_x_offset) + (column - map_info.grid_x_offset) * HEX_X_SIZE,

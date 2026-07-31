@@ -263,17 +263,17 @@ body.Allies #jp_hand {
 }
 
 @media (min-resolution: 97dpi) {
-    #map.main {
+    #mapwrap.main > #map {
         background-image: url(images/map_eots.150.avif);
     }
 }
 @media (min-resolution: 97dpi) {
-    #map.southpac {
+    #mapwrap.southpac > #map {
         background-image: url(images/map_south_pacific.150.avif);
     }
 }
 @media (min-resolution: 97dpi) {
-    #map.burma {
+    #mapwrap.burma > #map {
         background-image: url(images/map_burma.150.avif);
     }
 }
